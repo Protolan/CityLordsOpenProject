@@ -1,4 +1,4 @@
-﻿using Factories;
+﻿using PlayerLogic;
 using UnityEngine;
 using Zenject;
 
@@ -6,12 +6,12 @@ namespace Camera
 {
     public class CameraFollow: MonoBehaviour
     {
-        [Inject] private PlayerFactory _playerFactory;
+        [Inject] private Player _player;
         [SerializeField] private Vector3 _offsets;
         
         private void Update()
         {
-            var position = _playerFactory.Player.transform.position;
+            var position = _player.transform.position;
             transform.position = position + _offsets;
         }
     }

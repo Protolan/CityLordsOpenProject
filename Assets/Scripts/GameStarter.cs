@@ -2,14 +2,11 @@
 using UnityEngine;
 using Zenject;
 
-namespace UI
+public class GameStarter: MonoBehaviour
 {
-    public class GameStarter: MonoBehaviour
-    {
-        [SerializeField] private string Init = "Main";
+    [SerializeField] private string InitialScene = "Main";
 
-        [Inject] private SceneLoader _sceneLoader;
+    [Inject] private SceneLoader _sceneLoader;
 
-        private void Start() => _sceneLoader.Load(Init);
-    }
+    private void Start() => _sceneLoader.Load(InitialScene);
 }
